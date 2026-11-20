@@ -45,6 +45,8 @@ mod util;
 mod window;
 
 static TWEMOJI_FONT: &[u8] = include_bytes!("../assets/fonts/Twemoji.ttf");
+static NOTO_MATH_FONT: &[u8] = include_bytes!("../assets/fonts/NotoSansMath.ttf");
+static NOTO_SYMBOLS_FONT: &[u8] = include_bytes!("../assets/fonts/NotoSansSymbols2.ttf");
 
 const GIT_HASH: Option<&str> = option_env!("GIT_HASH");
 const APP_NAME: Option<&str> = option_env!("CARGO_PKG_NAME");
@@ -184,9 +186,13 @@ fn main() {
   let display_idx = config.display_idx;
 
   launch(
-    LaunchConfig::new()
+        LaunchConfig::new()
       .with_font("Twemoji", TWEMOJI_FONT)
+      .with_font("NotoMath", NOTO_MATH_FONT)
+      .with_font("NotoSymbols", NOTO_SYMBOLS_FONT)
       .with_fallback_font("Twemoji")
+      .with_fallback_font("NotoMath")
+      .with_fallback_font("NotoSymbols")
       .with_window(
         WindowConfig::new(app)
           .with_title("orbolay")
