@@ -188,11 +188,12 @@ fn main() {
   let display_idx = config.display_idx;
 
   launch(
-                    LaunchConfig::new()
+                   LaunchConfig::new()
       .with_font("Twemoji", TWEMOJI_FONT)
-      .with_font("DejaVu", DEJAVU_FONT)
-      .with_default_font("DejaVu")
+      .with_font("DejaVu Sans", DEJAVU_FONT)
+      .with_default_font("DejaVu Sans")
       .with_fallback_font("Twemoji")
+
 
       .with_window(
         WindowConfig::new(app)
