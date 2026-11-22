@@ -45,7 +45,8 @@ mod util;
 mod window;
 
 static TWEMOJI_FONT: &[u8] = include_bytes!("../assets/fonts/Twemoji.ttf");
-static NOTO_MATH_FONT: &[u8] = include_bytes!("../assets/fonts/NotoSansMath.ttf");
+static DEJAVU_FONT: &[u8] = include_bytes!("../assets/fonts/DejaVuSans.ttf");
+
 
 
 const GIT_HASH: Option<&str> = option_env!("GIT_HASH");
@@ -186,10 +187,10 @@ fn main() {
   let display_idx = config.display_idx;
 
   launch(
-            LaunchConfig::new()
+                LaunchConfig::new()
       .with_font("Twemoji", TWEMOJI_FONT)
-      .with_font("NotoMath", NOTO_MATH_FONT)
-      .with_fallback_font("NotoMath")
+      .with_font("DejaVu", DEJAVU_FONT)
+      .with_fallback_font("DejaVu")
 
       .with_window(
         WindowConfig::new(app)
