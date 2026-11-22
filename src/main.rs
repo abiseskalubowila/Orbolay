@@ -1,7 +1,8 @@
-#![cfg_attr(
-  all(not(debug_assertions), target_os = "windows"),
-  windows_subsystem = "windows"
-)]
+// #![cfg_attr(
+//   all(not(debug_assertions), target_os = "windows"),
+//   windows_subsystem = "windows"
+// )]
+
 #![allow(clippy::borrow_interior_mutable_const)]
 #![allow(clippy::declare_interior_mutable_const)]
 
@@ -187,10 +188,11 @@ fn main() {
   let display_idx = config.display_idx;
 
   launch(
-                LaunchConfig::new()
+                    LaunchConfig::new()
       .with_font("Twemoji", TWEMOJI_FONT)
       .with_font("DejaVu", DEJAVU_FONT)
-      .with_fallback_font("DejaVu")
+      .with_default_font("DejaVu")
+      .with_fallback_font("Twemoji")
 
       .with_window(
         WindowConfig::new(app)
